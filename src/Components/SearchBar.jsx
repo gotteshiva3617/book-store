@@ -12,14 +12,17 @@ function SearchBar({onSearch,handleKeyPress}) {
     }
   
   return (
-    <form className="form">
-      <input type='text'
-      value={query}
-      onChange={(e)=>setQuery(e.target.value)}
-      onKeyPress={handleKeyPress}
-      placeholder='Search for Books...'
-      />
-      <button type="submit" onClick={handleSearch}>Search</button>
+    <form class="d-flex">
+      <input class="form-control me-2" 
+        value={query}
+        onChange={(e)=>setQuery(e.target.value)}
+        onKeyPress={handleKeyPress}
+        type="search" 
+        placeholder="Search books here..." 
+        aria-label="Search"/>
+      <button class="btn btn-outline-success" 
+        type="submit" 
+        onClick={handleSearch}>Search</button>
     </form>
   )
 }

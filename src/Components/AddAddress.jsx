@@ -47,37 +47,6 @@ function AddAddress() {
             setMessage('Error updating details.')
         }
     }
-
-
-
-
-    // React.useEffect({
-    //     name:"",
-    //     email:"",
-    //     mobile:"",
-    //     street:"",
-    //     city:"",
-    //     state:"",
-    //     country:"",
-    //     pincode:"",
-    // })
-    // function collectIt(e){
-    //     const myData = e.target.value
-    //     setAddress({...address, [e.target.name]:myData})
-    // }
-    // function saveData(){
-    //     firestore.collection('address').add({
-    //         name:address.name,
-    //         email:address.email,
-    //         mobile:address.mobile,
-    //         street:address.street,
-    //         city:address.city,
-    //         state:address.state,
-    //         country:address.country,
-    //         pincode:address.pincode
-    //     })
-    //     window.location.pathname = '/'
-    // }
   return (
     <div className='address'>
         <h3>Add Address</h3>

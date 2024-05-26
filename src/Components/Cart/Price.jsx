@@ -16,23 +16,26 @@ function Price({cartItems}) {
           { cartTotal < 1000 ? <p className="add-line"> Add <strong>{999 - cartTotal}</strong> to get free delivery</p> : ''}
         <div className="prices">
           <div>
-            <h5>Item Price:</h5>
-            <h5>{cartTotal}</h5>
+            <h6>Item Price:</h6>
+            <h6><strike>{cartTotal}</strike> {cartTotal * 80/100}</h6>
           </div>
           <div>
-            <h5>GST:</h5>
-            <h5>{GST}</h5>
+            <h6>GST:</h6>
+            <h6>{GST}</h6>
           </div>
           <div>
-            <h5>Delivery Fee:</h5>
-            <h5>{deliveryFee}</h5>
+            <h6>Delivery Fee:</h6>
+            <h6>{deliveryFee}</h6>
           </div>
           <div>
-            <h5>Total:</h5>
-            <h5>{TotalPrice}</h5>
+            <h6>Total:</h6>
+            <h6>{TotalPrice}</h6>
           </div>
         </div>
-        <button className="btn" onClick={addressPage}>Continue To Payment</button>
+        <div className="price-buttons">
+          <button className="btn btn-success" onClick={addressPage}>Add Address</button><br/>
+          <button className="btn btn-outline-danger" onClick={addressPage}>Continue To Payment</button>
+        </div>
       </div>
       // Payment Link = https://buy.stripe.com/test_14kbKt8722Ki9mEeUW
   )

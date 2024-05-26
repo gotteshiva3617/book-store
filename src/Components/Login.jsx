@@ -56,22 +56,10 @@ function Login({setLogin}){
     }
     return(
         <div className='login-form'>
-            <div className="external-login">
-                <button type="button" className="btn" onClick={googleLogin}>Continue With Google</button><br/>
-                <button type="button" className="btn" onClick={githubLogin}>Continue With GitHub</button><br/>
-                <button type="button" className="btn" onClick={facebookLogin}>Continue With Facebook</button><br/>
-            </div>
-            <hr/>
-            <div className="otp-login">
-                <div>
-                    <input type='number' />
-                    <button className="btn">Send OTP</button><br/>
-                </div>
-                <input type='number' max="6"/><br/>
-                <button className="btn" type='submit'>Login</button>
-            </div>
+            <button type="button" className="btn btn-outline-info" onClick={googleLogin}>Continue With Google</button><br/>
+            <button type="button" className="btn btn-outline-info" onClick={githubLogin}>Continue With GitHub</button><br/>
+            <button type="button" className="btn btn-outline-info" onClick={facebookLogin}>Continue With Facebook</button><br/>
         </div>
-
     )
 }
 

@@ -1,44 +1,129 @@
+/* Bootstrap CSS */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:black;
-    color:white;
+.navbar{
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:999;
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.568);
+}
+.navbar-brand{
+    font-size:30px;
+    font-weight:700;
+}
+.card-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    align-items:center;
+    gap:1rem;
+    padding:2rem 3rem;
+}
+.card{
+    overflow:auto;
+}
+.card::-webkit-scrollbar{
+    display:flex;
+}
+h3{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+h3.full-title{
+    -webkit-line-clamp: unset;
+}
+.out-links a{
+    margin:5px 10px 5px 0;
+}
+.login-form{
+    background-color:rgb(218, 238, 255);
+    width:500px;
+    margin:2rem auto;
+    border-radius:10px;
+    text-align:center;
+    padding:2rem;
+}
+.login-form .btn{
+    margin:1rem 0;
+    width:100%;
 }
 body::-webkit-scrollbar{
     display:none;
 }
-.nav-container{
-    background-color:rgb(201, 201, 201);
-    color:black;
+
+
+.cart h2{
+    text-align:center;
+    margin:1rem;
+}
+.cart-handler{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
+    width:100%;
     padding:1rem;
+    gap:1rem;
+}
+.cart-container{
+    width:70%
+}
+.cart-div{
+    max-height:70vh;
+    display:flex;
+    flex-direction:column;
+    background-color:#c7c7c7;
+    background-color:rgb(82, 128, 172);
+    overflow:auto;
+    padding:1rem;
+}
+.cart-div::-webkit-scrollbar{
+    display:block;
+}
+.cart-container h3{
     position:sticky;
     top:0;
-    left:0;
-    height:16vh;
-    box-shadow: 0 0 3px 3px rgba(34, 4, 4, 0.418);
-    z-index:999;
+    margin:1rem;
 }
-.nav-container h1{
-    font-size:30px;
-    text-shadow:1px 2px 2px rgb(36, 4, 4);
+.cart-items{
+    margin:1rem;
+    display:flex;
+    align-items:start;
+    justify-content: space-between;
 }
-.nav-links .list-item{
-    font-size:18px;
-    font-weight:500;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-right:1.5rem;
-    color:black;
-    text-decoration:none;
+.cart-img{
+    width:15%;
 }
-.nav-links .active{
-    color:blue;
+.cart-img img{
+    width:100%;
+    /* height:150px; */
+}
+.cart-content{
+    width:80%;
+    /* height:100%; */
+    padding:1rem;
+}
+.cart-price{
+    width:20%;
+    height:100%;
+    padding:1rem;
+    /* background-color: blue; */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.price-container{
+    background-color:aqua;
+    width:30%;
+    background-color:#c7c7c7;
+}
+.price-buttons{
+    text-align:center;
 }
 
 .form{
@@ -63,21 +148,14 @@ body::-webkit-scrollbar{
     background-color:#088178;
     color:white;
 }
-.card-container{
-    border:4px solid white;
-    padding:3rem 1rem;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-evenly;
-    align-items:center;
-}
+/* .cart-container */
 .banner{
     text-align:center;
     margin:2rem;
     font-size:2rem;
 
 }
-.card-container .card{
+/* .card-container .card{
     width:500px;
     color:black;
     border-radius:10px;
@@ -90,7 +168,7 @@ body::-webkit-scrollbar{
     width:200px;
     height:250px;
     border-radius:10px 0 0 10px;
-}
+} */
 .card-content{
     padding:1rem;
 }
@@ -115,18 +193,11 @@ body::-webkit-scrollbar{
 }
 .details-container{
     display:flex;
-    width:70%;
-    margin: 2rem auto;
-    /* background-color:red; */
+    width:80%;
+    margin: auto;
     border:2px solid black;
     border-radius:10px;
     position:relative;
-}
-.back-btn{
-    position:absolute;
-    left:0;
-    top:0;
-
 }
 .loader{
     text-align:center;
@@ -160,50 +231,59 @@ body::-webkit-scrollbar{
     font-size:26px;
 }
 .btn{
-    background-color:rgb(45, 45, 146);
+    /* background-color:#078188;
     width:fit-content;
     border:1px solid rgb(0, 0, 0);
     border-radius:6px;
     padding:6px 8px;
     color:white;
     font-weight:600;
-    margin:1rem auto;
+    margin-top:6px; */
+
 }
-.btn:hover{
+/* .btn:hover{
     background-color:transparent;
     color:black;
     transition: 200ms;
-}
-.details-container button:active{
+} */
+/* .details-container button:active{
     background-color:rgb(59, 59, 212)
 }
 .cart{
+    background-color:#f0f8ff;
+    position:relative;
+}
+.cart-container .back{
+    position:sticky;
+    top:0;
+    left:0;
+}
+.cart-handler{
     display:flex;
     gap:1rem;
     padding:2rem;
-    background-color:aliceblue;
     width:100%;
     height:84vh;
 }
-.cart-container{
-    width:50%;
+/* .cart-container{
+    width: 50%;
     box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.507);
     border-radius:10px;
-    
-}
-.price-container{
+} */
+/* .price-container{
     width:50%;
     display:flex;
+    align-items:center;
+    justify-content:center;
     flex-direction:column;
     padding:2rem;
     box-shadow:0 0 2px 3px rgba(0, 0, 0, 0.507);
     justify-content:space-between;
     border-radius:10px;
-}
+} */
 .btn a{
     color:white;
     text-decoration:none;
-
 }
 .add-line{
     text-align:center;
@@ -257,7 +337,7 @@ body::-webkit-scrollbar{
     border-radius:5px;
     margin-left:20px;
     padding:6px 8px;
- }
+ } */
 /* Address Component */
 
 .address{
@@ -312,7 +392,7 @@ body::-webkit-scrollbar{
     background-color:rgb(216, 216, 216);
     color:black
 }
-.address-form  button{
+.address-form button{
     border:1px solid black;
     border-radius:10px;
     padding:6px 8px;
@@ -322,13 +402,11 @@ body::-webkit-scrollbar{
     margin: 1rem auto;
     text-align:center;
     background-color:rgb(45, 45, 155);
-
 }
 .address-form  button:hover{
     background-color:transparent;
     color:white;
 }
-
 
 /* Profile */
 
@@ -340,13 +418,12 @@ body::-webkit-scrollbar{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    /* background-color:aliceblue;
-    box-shadow:0 0 2px 3px black; */
     border-radius:10px;
     width:fit-content;
     padding:2rem;
     margin:1rem auto;
 }
+/* login-form */
 .profile-details img{
     border-radius:50%;
     width:100px;
@@ -361,57 +438,4 @@ body::-webkit-scrollbar{
 }
 .profile-details span{
     color:brown;
-}
-
-/* Login */
-.login-form{
-    background-color:rgb(218, 238, 255);
-    width:500px;
-    margin:1rem auto;
-    border-radius:10px;
-}
-.external-login{
-    padding:1rem;
-}
-.login-form button{
-    border:none;
-}
-.external-login button{
-    width:100%;
-    background-color:white;
-    color:black;
-}
-.external-login button:hover{
-    color:white;
-    background-color:rgb(44, 41, 41);
-}
-.otp-login{
-    padding:1rem 2rem;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-}
-.otp-login div{
-    width:100%;
-}
-.otp-login div input{
-    width:80%
-}
-.otp-login button{
-    background-color:#088178;
-    width:fit-content;
-}
-.otp-login input{
-    outline:none;
-    padding:4px 6px;
-    background-color:white;
-    border-radius:10px;
-    font-size:16px;
-    font-family:'Sebuttongoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border:none;
-}
-
-.otp-login button:hover{
-    background-color:black;
-    color:white;
 }

@@ -51,19 +51,19 @@ function App() {
       alert('Please Login First')
     }
     else{
-        const book = books.find((book)=>book.id === bookId)
-        const price = books.saleInfo?.listPrice?.amount;
-        if(book.saleInfo && book.saleInfo.listPrice && !isNaN(book.saleInfo.listPrice?.amount)){
-          const existingCartItem = cart.find(item => item.id === bookId)
-          if(existingCartItem){
-            setCart(cart.map(item => item.id === bookId ? {...item, quantity: item.quantity + 1}: item))
-          }
-          else{
-            setCart([...cart,{...book,price: parseFloat(price), quantity: 1}])
-          }
-        }else{
-          alert("This Item cannot be added to cart because it does not have a valid Price.")
+      const book = books.find((book)=>book.id === bookId)
+      const price = books.saleInfo?.listPrice?.amount;
+      if(book.saleInfo && book.saleInfo.listPrice && !isNaN(book.saleInfo.listPrice?.amount)){
+        const existingCartItem = cart.find(item => item.id === bookId)
+        if(existingCartItem){
+          setCart(cart.map(item => item.id === bookId ? {...item, quantity: item.quantity + 1}: item))
         }
+        else{
+          setCart([...cart,{...book,price: parseFloat(price), quantity: 1}])
+        }
+      }else{
+        alert("This Item cannot be added to cart because it does not have a valid Price.")
+      }
     }
   }
   const removeFromCart = (bookId)=>{
