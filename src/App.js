@@ -16,7 +16,7 @@ function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   const [books, setBooks] = useState([]);
   const [cart, setCart] = useState([]);
-  const defaultQuery = '/'
+  const defaultQuery = '.'
 
   useEffect(() => {
     const fetchDefaultBooks = async () => {
@@ -26,17 +26,6 @@ function App() {
 
     fetchDefaultBooks();
   }, []);
-
-  useEffect(()=>{
-    const storedCart = localStorage.getItem(cart)
-    if(storedCart){
-      setCart(JSON.parse(storedCart))
-    }
-  },[cart])
-
-  useEffect(()=>{
-    localStorage.setItem('cart',JSON.stringify(cart))
-  },[cart])
 
   const searchBooks =async (query) =>{
         await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyCJm4mKF0_TGuwsz-5f3sKu8u1S4zPdBec`)
@@ -70,31 +59,21 @@ function App() {
     setCart(cart.filter((book)=>book.id !== bookId))
   }
 
-  const handleIncrementQuantity = (bookId)=>{
-    console.log(bookId)
-    setCart(cart.map(item=>item.id === bookId ?{...item, quantity: item.quantity + 1} : item))
-  }
-
-  const handleDecrementQuantity = (bookId)=>{
-    console.log(bookId)
-    setCart(cart.map(item=>item.id === bookId ? {...item, quantity: item.quantity > 1 ? item.quantity -1 : 1}:item))
-  }
-
   return (
     <Router>
-          <NavBar initial={isLoggedIn} onSearch={searchBooks} cartItems={cart}/>
-            <UserProvider>
+      <NavBar initial={isLoggedIn} onSearch={searchBooks} cartItems={cart}/>
+        <UserProvider>
           <Routes>
               <Route exact path='/' element={<Home books={books} cartItems={cart} onAddToCart={addToCart}/>}/>
               <Route path='/about' element={<About/>}/>
               <Route path='/book/:bookId' element={<BookDetails login={isLoggedIn} cartItems={cart} onAddToCart={addToCart}/>}/>
-              <Route path='/cart' element={<Cart login={isLoggedIn} cartItems={cart} onRemoveFromCart={removeFromCart} onIncrQuantity={handleIncrementQuantity} onDecrQuantity={handleDecrementQuantity}/>}/>
+              <Route path='/cart' element={<Cart login={isLoggedIn} cartItems={cart} onRemoveFromCart={removeFromCart}/>}/>
               <Route path='/address' element={<AddAddress/>}/>
               <Route path='/login' element={<Login login={isLoggedIn} setLogin={setIsLoggedIn}/>}/>
               <Route path='/profile' element={<Profile/>}/>
           </Routes>
-            </UserProvider>
-        </Router>
+      </UserProvider>
+    </Router>
   )
 }
 

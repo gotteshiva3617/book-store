@@ -10,17 +10,16 @@ function SearchBar({onSearch,handleKeyPress}) {
       setQuery('')
       navigate('/')
     }
-  
   return (
-    <form class="d-flex">
-      <input class="form-control me-2" 
+    <form className="d-flex">
+      <input className="form-control me-2" 
         value={query}
         onChange={(e)=>setQuery(e.target.value)}
         onKeyPress={handleKeyPress}
         type="search" 
         placeholder="Search books here..." 
         aria-label="Search"/>
-      <button class="btn btn-outline-success" 
+      <button className="btn btn-outline-success" 
         type="submit" 
         onClick={handleSearch}>Search</button>
     </form>

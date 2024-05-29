@@ -26,7 +26,9 @@ function BookList({books}) {
           </div>
         );
       };
+    
 
+    if(!books) return <p className="loader">Loading...</p>
     if(books.length === 0){
         return  <div className="banner">Search for books...</div>
     }
